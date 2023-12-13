@@ -67,9 +67,9 @@ completionHandler:(void (^)(NSRunningApplication *app, NSError *error))completio
   return YES;
 }
 
-- (BOOL)application:(NSApplication *)application
-    continueUserActivity:(NSUserActivity *)userActivity
-      restorationHandler:(void (^)(NSArray *_Nullable))restorationHandler {
+- (BOOL)application:(NSApplication *)application 
+continueUserActivity:(NSUserActivity *)userActivity 
+ restorationHandler:(void (^)(NSArray<id<NSUserActivityRestoring>> *restorableObjects))restorationHandler {
   if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
     self.latestLink = [userActivity.webpageURL absoluteString];
     NSLog(@"continueUserActivity %@", self.latestLink);

@@ -6,7 +6,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 - (BOOL)application:(NSApplication *)application
     continueUserActivity:(NSUserActivity *)userActivity
-      restorationHandler:(void (^)(NSArray *_Nullable))restorationHandler;
+      restorationHandler:(void (^)(NSArray<id<NSUserActivityRestoring>> *restorableObjects))restorationHandler;
 @end
 
 NS_ASSUME_NONNULL_END
