@@ -53,6 +53,12 @@ static id _instance;
 //  return YES;
 //}
 
+- (void)openURL:(NSURL *)url
+  configuration:(NSWorkspaceOpenConfiguration *)configuration
+completionHandler:(void (^)(NSRunningApplication *app, NSError *error))completionHandler  API_AVAILABLE(macos(10.15)){
+    self.latestLink = [url absoluteString];
+}
+
 - (BOOL)application:(NSApplication *)application
             openURL:(NSURL *)url {
   self.latestLink = [url absoluteString];
