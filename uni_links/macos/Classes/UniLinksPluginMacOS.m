@@ -57,13 +57,11 @@ static id _instance;
   configuration:(NSWorkspaceOpenConfiguration *)configuration
 completionHandler:(void (^)(NSRunningApplication *app, NSError *error))completionHandler  API_AVAILABLE(macos(10.15)){
     self.latestLink = [url absoluteString];
-    NSLog(@"openURL:configuration:completionHandler: %@", self.latestLink);
 }
 
 - (BOOL)application:(NSApplication *)application
             openURL:(NSURL *)url {
   self.latestLink = [url absoluteString];
-    NSLog(@"application:openURL %@", self.latestLink);
   return YES;
 }
 
@@ -72,7 +70,6 @@ continueUserActivity:(NSUserActivity *)userActivity
  restorationHandler:(void (^)(NSArray<id<NSUserActivityRestoring>> *restorableObjects))restorationHandler {
   if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
     self.latestLink = [userActivity.webpageURL absoluteString];
-    NSLog(@"continueUserActivity %@", self.latestLink);
     if (!_eventSink) {
       self.initialLink = self.latestLink;
     }
@@ -83,7 +80,6 @@ continueUserActivity:(NSUserActivity *)userActivity
 
 - (void)handleMethodCall:(FlutterMethodCall *)call result:(FlutterResult)result {
   if ([@"getInitialLink" isEqualToString:call.method]) {
-    NSLog(@"getInitialLink %@", self.latestLink);
     result(self.initialLink);
     // } else if ([@"getLatestLink" isEqualToString:call.method]) {
     //     result(self.latestLink);
