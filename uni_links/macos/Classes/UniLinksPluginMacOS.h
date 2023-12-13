@@ -2,7 +2,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UniLinksPlugin : NSObject <FlutterPlugin>
+@interface UniLinksPluginMacOS : NSObject <FlutterPlugin>
 + (instancetype)sharedInstance;
 - (BOOL)application:(NSApplication *)application
     continueUserActivity:(NSUserActivity *)userActivity

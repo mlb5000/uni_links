@@ -8,5 +8,5 @@ import Foundation
 import uni_links
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  UniLinksPlugin.register(with: registry.registrar(forPlugin: "UniLinksPlugin"))
+  UniLinksPluginMacOS.register(with: registry.registrar(forPlugin: "UniLinksPluginMacOS"))
 }

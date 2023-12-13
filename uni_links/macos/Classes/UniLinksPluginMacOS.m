@@ -1,28 +1,28 @@
-#import "UniLinksPlugin.h"
+#import "UniLinksPluginMacOS.h"
 
 static NSString *const kMessagesChannel = @"uni_links/messages";
 static NSString *const kEventsChannel = @"uni_links/events";
 
-@interface UniLinksPlugin () <FlutterStreamHandler>
+@interface UniLinksPluginMacOS () <FlutterStreamHandler>
 @property(nonatomic, copy) NSString *initialLink;
 @property(nonatomic, copy) NSString *latestLink;
 @end
 
-@implementation UniLinksPlugin {
+@implementation UniLinksPluginMacOS {
   FlutterEventSink _eventSink;
 }
 
 static id _instance;
 
-+ (UniLinksPlugin *)sharedInstance {
++ (UniLinksPluginMacOS *)sharedInstance {
   if (_instance == nil) {
-    _instance = [[UniLinksPlugin alloc] init];
+    _instance = [[UniLinksPluginMacOS alloc] init];
   }
   return _instance;
 }
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
-  UniLinksPlugin *instance = [UniLinksPlugin sharedInstance];
+  UniLinksPluginMacOS *instance = [UniLinksPluginMacOS sharedInstance];
 
   FlutterMethodChannel *channel =
       [FlutterMethodChannel methodChannelWithName:kMessagesChannel
